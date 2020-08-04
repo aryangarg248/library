@@ -1,0 +1,71 @@
+import random
+
+lst = ['s' , 'p' , 'sc']
+
+chances = 0
+total_no_of_chances = 10
+computer_point = 0
+human_point = 0
+
+print("s for stone , p for paper , sc for scissor")
+while total_no_of_chances>chances:
+    _input = input('stone , paper , scissor')
+    _random = random.choice(lst)
+
+    if _input==_random:
+        print("no one wins tie 0 point for both\n")
+
+    # if user enter s
+
+    if _input == "s" and _random == "p":
+        computer_point = computer_point +1
+        print(f"your guess is {_input} & computers guess is {_random}\n")
+        print("computer wins 1 point")
+        print(f"your point is {human_point} & computers point is {computer_point}\n")
+
+    elif _input == "s" and _random == "sc":
+        human_point = human_point+1
+        print(f"your guess{_input} & computers guess is {_random}\n")
+        print("you wins 1 point")
+        print(f"your point is {human_point} & computers point is {computer_point}\n")
+
+    #if user enter paper
+    if _input == "p" and _random == "s":
+        human_point = human_point + 1
+        print(f"your guessis {_input} & computers guess is {_random}\n")
+        print("you wins 1 point")
+        print(f"your point is {human_point} & computers point is {computer_point}\n")
+    elif _input == "p" and _random == "sc":
+        computer_point = computer_point + 1
+        print(f"your guess is {_input} & computers guess is {_random}\n")
+        print("computer wins 1 point")
+        print(f"your point is {human_point} & computers point is {computer_point}\n")
+
+    #if user enter scissor
+    if _input == "sc" and _random == "s":
+        computer_point = computer_point + 1
+        print(f"your guess is {_input} & computers guess is {_random}\n")
+        print("computer wins 1 point")
+        print(f"your point is {human_point} & computers point is {computer_point}\n")
+
+    elif _input == "sc" and _random == "p":
+        computer_point = computer_point + 1
+        print(f"your guess{_input} & computers guess is {_random}\n")
+        print("computer wins 1 point")
+        print(f"your point is {human_point} & computers point is {computer_point}\n")
+
+    else:
+        print("please enter a valid value")
+
+    chances = chances+1
+    print(f"{total_no_of_chances - chances} is left out of {total_no_of_chances}")
+
+print("Game over")
+
+if computer_point > human_point:
+        print("Computer wins and you loose")
+
+if computer_point < human_point:
+        print("you win and computer loose")
+
+print(f"your point is {human_point} and computer point is {computer_point}")
